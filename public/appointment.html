@@ -57,6 +57,7 @@
         })
         .then(res=> res.json())
         .then(res=> {
+          console.log(res)
           res.message.map((item)=>{
             box.innerHTML+=`<div class="card" style="margin:10px;padding:10px"><div><b>Doctor : ${item.dname}</div>
             <div><b>Patient name : ${item.uname}</div>

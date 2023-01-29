@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<input id="email" type="email">
+<input id="pass" type="password">
+<button onclick="submit()"> Submit</button>
+    
+
+
+<script>
+                function submit(){
+                    fetch('http://localhost:5000/loginUser', {
+                    method: 'POST',
+                    headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: email.value, pass: pass.value })
+                })
+                    .then(res => res.json())
+                    .then(res => {
+                     console.log(res)
+                     localStorage.setItem("token",res.token)
+                    //  if (res.token){
+                    //      window.location = "/"
+                     
+                    //  }else {
+                    //     alert("err")
+                    //  }
+
+                    })
+                    .catch(err => console.log(err));
+                }
+
+</script>
+</body>
+</html>
