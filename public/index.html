@@ -92,7 +92,10 @@
             <p><i class="fa fa-angle-right"></i><a href="#">Diabetes</a></p>
             <p><i class="fa fa-angle-right"></i><a href="#">IBS-Irritable Bowel Movement</a></p>
             <p><i class="fa fa-angle-right"></i><a href="/covid.html">Covid</a></p>
-
+            <div id="login">
+              <p><i class="fa fa-angle-right"></i><a href="/login.html">Login</a></p>
+              <p><i class="fa fa-angle-right"></i><a href="/register.html">Sign Up</a></p>
+            </div>
           </div>
         </div>
       </div>
@@ -146,7 +149,15 @@
 
 
 
+
   <script>
+
+    const tokens = localStorage.getItem("token")
+    if (tokens != null) {
+      document.getElementById("login").style.display = "none"
+
+    }
+
     const config = {
       binaryThresh: 0.5,
       hiddenLayers: [3],
