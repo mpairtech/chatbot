@@ -95,21 +95,29 @@
     function main3(x) {
       dname.value = x;
     }
-    fetch('http://localhost:5000/adlist', {
+
+    fetch('http://localhost:5000/aplist', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
+
     })
       .then(res => res.json())
       .then(res => {
         console.log(res)
+
         res.message.map((item) => {
           box.innerHTML += `
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="main3('${item.id}')">${item.dname}</button>
-         `;
+          <ul class="list-group">
+  <li class="list-group-item"  >
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="main3('${item.id}')">${item.dname}</button>
+    </li>
+</ul>
+`;
         })
+
       })
       .catch(err => console.log(err));
 

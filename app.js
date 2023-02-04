@@ -190,6 +190,14 @@ app.post('/aplist', (req, res) => {
 
 })
 
+app.post('/aplistfilter', (req, res) => {
+  const { dname } = req.body;
+  db.query("SELECT *FROM dname WHERE dname = ?  ORDER BY id DESC", (err, result) => {
+    res.json({ 'message': result })
+  })
+
+})
+
 
 
 app.post('/slist', (req, res) => {
