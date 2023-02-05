@@ -137,6 +137,9 @@
                       <i class="fa fa-paper-plane"></i>
                       Send</button> -->
           </div>
+
+
+          <button id="appBtn" style="display:none" data-toggle="modal" data-target="#exampleModal" class="btn btn-warning">Get apointment</button>
         </div>
 
       </div>
@@ -302,7 +305,13 @@
     }
 
     function main3(x) {
-      dname.value = x;
+      if(tokens == null){
+        window.location = "/login"
+      } else {
+        dname.value = x;
+        document.getElementById("appBtn").click()
+      }
+      
     }
 
     function main4() {
