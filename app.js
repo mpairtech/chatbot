@@ -184,7 +184,8 @@ app.post('/adlist', (req, res) => {
 
 
 app.post('/aplist', (req, res) => {
-  db.query("SELECT *FROM appointment ORDER BY id DESC", (err, result) => {
+  const { dname } = req.body;
+  db.query("SELECT *FROM appointment WHERE dname = ?", dname, (err, result) => {
     res.json({ 'message': result })
   })
 

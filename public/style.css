@@ -62,3 +62,12 @@ a:hover {
 i {
   margin-right: 10px;
 }
+
+.search-doctor-panel {
+  height: 500px;
+  overflow: auto;
+}
+
+.bg-color {
+  background-color: #ddd;
+}

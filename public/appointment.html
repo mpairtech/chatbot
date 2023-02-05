@@ -11,6 +11,17 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <title>Hello, world!</title>
+  <style>
+    @media print {
+      .download-pdf {
+        display: block;
+      }
+
+      .download-page {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -33,7 +44,7 @@
   <div class="container">
 
 
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <ul class="nav nav-pills mb-3 download-page" id="pills-tab" role="tablist">
       <li class="nav-item">
         <a class="nav-link" href="/admin" role="tab" aria-controls="pills-home" aria-selected="true">Disease</a>
       </li>
@@ -55,7 +66,7 @@
 
 
     <div id="box"></div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -87,14 +98,12 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 
   <script>
-    function main3(x) {
-      dname.value = x;
-    }
+
     fetch('http://localhost:5000/adlist', {
       method: 'POST',
       headers: {
@@ -107,7 +116,7 @@
         console.log(res)
         res.message.map((item) => {
           box.innerHTML += `
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="main3('${item.id}')">${item.dname}</button>
+          <button type="button" class="btn btn-primary download-page" onclick="main3('${item.dname}')">${item.dname}</button>
          `;
         })
       })
@@ -129,7 +138,44 @@
       })
       .catch(err => console.log(err));
 
+    function main3(x) {
 
+      fetch('http://localhost:5000/aplist', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ dname: x })
+      })
+        .then(res => res.json())
+        .then(res => {
+
+          console.log(res)
+          if (res.message) {
+            res.message.filter(item => {
+              if (item.dname == x) {
+                return item;
+              }
+            }).map(item => (
+              box.innerHTML += `
+              <button onclick="window.print();" class="download-page">Download ${item.dname}</button>
+              <div class="card shadow download-pdf">
+                <div class="card-body">
+                  <p>${item.dname} </p>
+                  <p>${item.uname} </p>
+                  <p> ${item.uphone}</p>
+                </div>
+              </div>
+             `
+            ))
+          }
+
+        })
+        .catch(err => console.log(err))
+
+
+    }
 
 
   </script>
