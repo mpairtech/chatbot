@@ -139,7 +139,8 @@
           </div>
 
 
-          <button id="appBtn" style="display:none" data-toggle="modal" data-target="#exampleModal" class="btn btn-warning">Get apointment</button>
+          <button id="appBtn" style="display:none" data-toggle="modal" data-target="#exampleModal"
+            class="btn btn-warning">Get apointment</button>
         </div>
 
       </div>
@@ -173,20 +174,20 @@
 
     console.log(net)
 
-    // fetch('http://localhost:5000/train',{
-    //     method: 'POST',
-    //     headers: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json'
-    //     }
-    //   })
-    //   .then(res=> res.json())
-    //   .then(res=> {
-    //     net.train(res.message,{
-    //       iterations : 200
+    // fetch('http://localhost:5000/train', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   }
+    // })
+    //   .then(res => res.json())
+    //   .then(res => {
+    //     net.train(res.message, {
+    //       iterations: 200
     //     });
     //   })
-    //   .catch(err=> console.log(err))
+    //   .catch(err => console.log(err))
 
 
 
@@ -304,13 +305,13 @@
     }
 
     function main3(x) {
-      if(tokens == null){
+      if (tokens == null) {
         window.location = "/login"
       } else {
         dname.value = x;
         document.getElementById("appBtn").click()
       }
-      
+
     }
 
     function main4() {

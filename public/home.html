@@ -286,10 +286,25 @@
         function main3(x) {
             dname.value = x;
         }
+        function main3(x) {
+            if (tokens == null) {
+                window.location = "/login"
+            } else {
+                dname.value = x;
+                document.getElementById("appBtn").click()
+            }
 
+        }
         function main4() {
 
-
+            if (dname.value == "") {
+                alert("type name");
+                return false
+            }
+            if (uphone.value == "") {
+                alert("type phone");
+                return false
+            }
 
             fetch('http://localhost:5000/postapoint', {
                 method: 'POST',
@@ -375,6 +390,8 @@
 
             </div>
         </div>
+        <button id="appBtn" style="display:none" data-toggle="modal" data-target="#exampleModal"
+            class="btn btn-warning">Get apointment</button>
         <div class="info">
             <h5 class="border-bottom p-2">Popular Disease Symptoms</h5>
             <div id="accordion">

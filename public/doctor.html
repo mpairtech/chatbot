@@ -16,6 +16,7 @@
 <style>
   #place {
     cursor: pointer;
+    display: none;
   }
 </style>
 
@@ -36,37 +37,46 @@
 
 
 
-  <div class="container">
+  <div class="container bg-white my-5 p-3 rounded">
+
+    <h5 class="font-weight-bold">Admin Portal</h5>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav download-page " id="pills-tab" role="tablist">
+          <li class="nav-item px-3">
+            <a class="nav-link " href="/admin" role="tab" aria-controls="pills-home" aria-selected="true">Disease</a>
+          </li>
+          <li class="nav-item px-3">
+            <a class="nav-link active font-weight-bold" id="pills-profile-tab" href="doctor.html" role="tab"
+              aria-controls="pills-profile" aria-selected="false">Doctor</a>
+          </li>
+          <li class="nav-item px-3">
+            <a class="nav-link" id="pills-contact-tab" href="disease.html" role="tab" aria-controls="pills-contact"
+              aria-selected="false">Disease</a>
+          </li>
+          <li class="nav-item px-3">
+            <a class="nav-link " id="pills-contact-tab" href="appointment.html" role="tab" aria-controls="pills-contact"
+              aria-selected="false">Appointment</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
 
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link" href="/admin" role="tab" aria-controls="pills-home" aria-selected="true">Disease</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" id="pills-profile-tab" href="doctor.html" role="tab" aria-controls="pills-profile"
-          aria-selected="false">Doctor</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-contact-tab" href="disease.html" role="tab" aria-controls="pills-contact"
-          aria-selected="false">Disease</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-contact-tab" href="appointment.html" role="tab" aria-controls="pills-contact"
-          aria-selected="false">Appointment</a>
-      </li>
-    </ul>
 
-
-
-    <input type="text" id="dname" class="form-control mb-2" placeholder="Doctor name" />
+    <input type="text" id="dname" class="form-control mb-2 mt-2" placeholder="Doctor name" />
     <select id="disease" class="form-control mb-2"></select>
 
     <input type="text" id="dtime" class="form-control mb-2" placeholder="Visiting Hours" />
     <input type="text" class="form-control mb-2" id="quality" placeholder="Qualifications"></input>
 
 
-    <div class="form-control">
+    <div class="form-control mb-2">
       <input type="text" id="address" placeholder="Search Place" />
       <button class="btn btn-warning" onclick="fetchadd()">Search place</button>
     </div>
@@ -95,6 +105,7 @@
     }
 
     function fetchadd() {
+      place.style.display = "block"
 
       place.innerHTML = "LOADING";
       var x = address.value;
