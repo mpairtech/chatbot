@@ -82,7 +82,7 @@
     </div>
 
 
-    <div id="place" class="form-control"></div>
+    <div id="place" class="form-control mb-2"></div>
 
     <button onclick="main()" class="btn btn-info">Send</button>
 
@@ -134,9 +134,9 @@
       .then(res => res.json())
       .then(res => {
         res.message.map((item) => {
-          box.innerHTML += `<div class="card" style="margin:10px;padding:10px"><div><b>Symptoms : ${item.dname}</div>
+          box.innerHTML += `<div class="card" style="margin:10px;padding:10px"><div><b>Doctor Name : ${item.dname}</div>
             <div><b>Disease : ${item.disease}</div>
-            <div><b>Disease : ${item.dtime}</div>
+            <div><b>Time : ${item.dtime}</div>
             </div>`;
         })
       })
