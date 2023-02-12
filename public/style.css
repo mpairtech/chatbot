@@ -71,3 +71,10 @@ i {
 .bg-color {
   background-color: #ddd;
 }
+
+.bg-img {
+  background-image: url('medical-banner.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}

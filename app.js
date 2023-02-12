@@ -98,7 +98,7 @@ app.post('/postdis', (req, res) => {
 app.post('/fdlist', (req, res) => {
   const { dname } = req.body;
 
-  db.query('SELECT *FROM disease WHERE output = ? LIMIT 10', dname, (err, result) => {
+  db.query('SELECT *FROM disease WHERE output = ? ', dname, (err, result) => {
     res.json({ 'message': result });
     console.log(err)
   });
@@ -123,8 +123,6 @@ app.post('/postapoint', (req, res) => {
 app.post('/reply', (req, res) => {
   const { msg, input } = req.body;
   const output = net.run(msg);
-
-
 
   db.query("SELECT output FROM disease WHERE output = ?", output, (err, result) => {
     if (result.length > 0) {

@@ -16,7 +16,7 @@
     <title>Hello, world!</title>
 </head>
 
-<body class="bg-color">
+<body class="bg-color bg-img">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -193,6 +193,7 @@
         function main() {
 
             box.innerHTML = 'LOADING';
+            header.innerHTML = '';
 
             // var output = net.run(msg.value);
             var input = msg.value
@@ -223,7 +224,7 @@
 
                         }).map((item) => {
                             if (item != "") {
-                                document.getElementById("header").innerHTML = `You might be suffering ` + item.disease
+                                header.innerHTML = `You might be suffering ` + item.disease
                                 box.innerHTML += `
                     <div class="col-6 mt-2 p-0">
                        <div class="card p-3 m-2">
@@ -381,8 +382,7 @@
         </div>
         <div class="search-doctor-panel">
             <p id="header" class="text-center m-0"></p>
-            <div id="box" class="row m-0 justify-content-center ">
-
+            <div id="box" class="row m-0 justify-content-center">
                 <center>
                     <img src="noresult.gif" width="200" />
                     <h5>Search result will appear here</h5>
