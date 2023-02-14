@@ -16,6 +16,7 @@ body {
   overflow: auto;
 }
 
+
 .active {
   font-weight: bold;
 }
@@ -77,4 +78,8 @@ i {
   background-repeat: no-repeat;
   background-size: cover;
 
+}
+
+.btn-footer {
+  cursor: pointer;
 }

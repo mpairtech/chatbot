@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2023 at 07:46 AM
+-- Generation Time: Feb 14, 2023 at 07:35 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -31,17 +31,16 @@ CREATE TABLE `appointment` (
   `id` int(11) NOT NULL,
   `uname` text NOT NULL,
   `dname` text NOT NULL,
-  `uphone` text NOT NULL
+  `uphone` text NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `appointment`
 --
 
-INSERT INTO `appointment` (`id`, `uname`, `dname`, `uphone`) VALUES
-(1, 'Fkr', 'Dr. Asiful Riyed', '8801854652339'),
-(2, 'fkr', 'Dr. FKR Mujumdar', '1234'),
-(3, 'abc', 'Dr Sumon Rahman Chowdhury', '01788817293');
+INSERT INTO `appointment` (`id`, `uname`, `dname`, `uphone`, `date`) VALUES
+(6, 'akib', 'Dr Sumon Rahman Chowdhury', '000', '2023-02-14 12:33:12');
 
 -- --------------------------------------------------------
 
@@ -60,29 +59,51 @@ CREATE TABLE `disease` (
 --
 
 INSERT INTO `disease` (`id`, `input`, `output`) VALUES
-(1, 'Urinate (pee) a lot, often at night ', 'Diabetes'),
-(2, 'Diabetes', 'Diabetes'),
-(3, 'pressure or tightness in the chest', 'Myocardial infarction (Heart Attack)'),
-(4, 'Coughing, especially at night or in the morning', 'Asthma'),
-(5, 'Myocardial infarction (Heart Attack)', 'Myocardial infarction (Heart Attack)'),
-(6, 'Asthma', 'Asthma'),
-(7, 'Are very thirsty', 'Diabetes'),
-(8, ' a fast heart rate', 'Myocardial infarction (Heart Attack)'),
-(9, 'Lose weight without trying', 'Diabetes'),
-(10, ' a fast heart rate', 'Myocardial infarction (Heart Attack)'),
-(11, 'Wheezing, a whistling sound when you breathe', 'Asthma'),
-(12, 'Abdominal pain or cramps, usually in the lower half of the abdomen. ', 'IBS-Irritable Bowel Movement'),
-(13, 'IBS-Irritable Bowel Movement', 'IBS-Irritable Bowel Movement'),
-(14, 'Have blurry vision ', 'Diabetes'),
-(15, 'sense of impending doom ', 'Myocardial infarction (Heart Attack)'),
-(16, 'Tightness, pain, or pressure in your chest ', 'Asthma'),
-(17, 'Bowel movements that are harder or looser than usual', 'IBS-Irritable Bowel Movement'),
-(18, 'having a low or subnormal temperature', 'cold'),
-(19, 'an unusually cold spring that was followed by a sweltering summer', 'cold'),
-(20, 'lacking in friendliness or warmth of feeling', 'cold'),
-(21, 'having or showing a lack of friendliness or interest in others', 'cold'),
-(22, 'having lost consciousness', 'cold'),
-(23, 'causing or marked by an atmosphere lacking in cheer', 'cold');
+(24, 'Bloating', 'IBS'),
+(25, 'Increased thirst', 'Diabetes'),
+(26, 'Coughing', 'Asthma'),
+(27, 'Shortness of breath', 'Heart Attack'),
+(28, 'Nausea', 'Diarrhea'),
+(29, 'watery stools', 'Diarrhea'),
+(30, 'Chest discomfort', 'Heart Attack'),
+(31, 'Difficulty breathing', 'Asthma'),
+(32, 'Pee a lot', 'Diabetes'),
+(33, 'stomach pain', 'IBS'),
+(34, 'Vomiting', 'Diarrhea'),
+(35, 'Chest pain', 'Heart Attack'),
+(36, 'Wheezing when exhaling', 'Asthma'),
+(37, 'very hungry', 'Diabetes'),
+(38, 'feeling sick', 'IBS'),
+(39, 'Bloating', 'Diarrhea'),
+(40, 'discomfort in shoulders', 'Heart Attack'),
+(41, 'breath problem', 'Asthma'),
+(42, 'blurry vision', 'Diabetes'),
+(43, 'heartburn', 'IBS'),
+(44, 'Blood in stool', 'Diarrhea'),
+(45, 'neck Pain', 'Heart Attack'),
+(46, 'exhaling problem', 'Asthma'),
+(47, 'tired feeling', 'Diabetes'),
+(48, 'abdominal cramping', 'IBS'),
+(49, 'loose motion', 'Diarrhea'),
+(50, 'dry skin', 'Diabetes'),
+(51, 'neck discomfort', 'Heart Attack'),
+(52, 'Wheezing', 'Asthma'),
+(53, 'swelling stomach', 'Diarrhea'),
+(54, 'loosing weight', 'Diabetes'),
+(55, 'Back Pain', 'Heart Attack'),
+(56, 'trouble berating', 'Asthma'),
+(57, 'lack energy', 'IBS'),
+(58, 'Mucus in stool', 'Diarrhea'),
+(59, 'stomach pain', 'IBS'),
+(61, 'neck discomfort', 'Heart Attack'),
+(62, 'watery stools', 'Diarrhea'),
+(63, 'Wheezing', 'Asthma'),
+(64, 'discomfort in shoulders', 'Heart Attack'),
+(65, 'dry skin', 'Diabetes'),
+(66, 'exhaling problem', 'Asthma'),
+(67, 'very hungry', 'Diabetes'),
+(68, 'Blood in stool', 'Diarrhea'),
+(69, 'heartburn', 'IBS');
 
 -- --------------------------------------------------------
 
@@ -100,34 +121,11 @@ CREATE TABLE `dname` (
 --
 
 INSERT INTO `dname` (`id`, `dname`) VALUES
-(1, 'Diabetes'),
-(2, 'Myocardial infarction (Heart Attack)'),
-(3, 'Asthma'),
-(4, 'IBS-Irritable Bowel Movement'),
-(8, 'Abdominal aortic aneurysm'),
-(9, 'Acne'),
-(10, 'Acute'),
-(11, 'Bacterial'),
-(12, 'Carcinoid'),
-(13, 'Deafblindness'),
-(14, 'Earache'),
-(15, 'Febrile'),
-(16, 'Gallbladder'),
-(17, 'Haemorrhoids (piles) Hand'),
-(18, 'Idiopathic'),
-(19, 'Kidney'),
-(20, 'Labyrinthitis'),
-(21, 'Malaria'),
-(22, 'Nasal'),
-(23, 'Obesity'),
-(24, 'Paget\'s'),
-(25, 'Rare tumours Raynaud\'s'),
-(26, 'Scabies'),
-(27, 'Testicular'),
-(28, 'Ulcerative'),
-(29, 'cancer'),
-(30, 'Warts'),
-(31, 'Yellow fever');
+(32, 'Diabetes'),
+(33, 'Heart Attack'),
+(34, 'Asthma'),
+(35, 'IBS'),
+(36, 'Diarrhea');
 
 -- --------------------------------------------------------
 
@@ -152,9 +150,10 @@ CREATE TABLE `doctor` (
 
 INSERT INTO `doctor` (`id`, `dname`, `disease`, `dtime`, `address`, `lati`, `longi`, `qualification`) VALUES
 (1, 'Dr Sumon Rahman Chowdhury', 'Diabetes', 'Evening 7 pm To 9 pm (Friday Closed) ', 'Halishahar Road, Uttor Moddho Halishohor, HaliShohor, Chattogram, Chattogram District, Chattogram Division, 4216, Bangladesh', '22.325106', '91.7825195', 'MBBS, CCD (Diabetology) MMed (Endocrinology), MACE (USA) Post Graduate Diploma in Diabetes (Cardif, '),
-(2, 'Dr. Asiful Riyed', 'Diabetes', '8 A.M to 10 P.M', 'chittagong', '22.3336887', '91.8342162', 'M.B.B.S'),
-(3, 'Dr. FKR Mujumdar', 'Diabetes', ' Evening 7 pm To 9 pm (Friday Closed)', 'Chattogram, Chattogram District, Chattogram Division, 4000, Bangladesh', '22.3336887', '91.8342162', 'M.B.B.S'),
-(4, 'Dr Sumon Rahman Chowdhury', 'cold', 'Evening 7 pm To 9 pm (Friday Closed)', 'Chattogram, Chattogram District, Chattogram Division, 4000, Bangladesh', '22.3336887', '91.8342162', 'MBBS');
+(2, 'Dr. Asiful Riyed', 'Heart Attack', '8 A.M to 10 P.M', 'chittagong', '22.3336887', '91.8342162', 'M.B.B.S'),
+(3, 'Dr. FKR Mujumdar', 'Asthma', ' Evening 7 pm To 9 pm (Friday Closed)', 'Chattogram, Chattogram District, Chattogram Division, 4000, Bangladesh', '22.3336887', '91.8342162', 'M.B.B.S'),
+(4, 'Dr Sumon Rahman Chowdhury', 'IBS', 'Evening 7 pm To 9 pm (Friday Closed)', 'Chattogram, Chattogram District, Chattogram Division, 4000, Bangladesh', '22.3336887', '91.8342162', 'MBBS'),
+(5, 'Dr Irfath', 'Diarrhea', 'Evening 7 pm To 9 pm (Friday Closed)', 'Chattogram, Chattogram District, Chattogram Division, 4000, Bangladesh', '22.3336887', '91.8342162', 'MBBS');
 
 -- --------------------------------------------------------
 
@@ -226,25 +225,25 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `disease`
 --
 ALTER TABLE `disease`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `dname`
 --
 ALTER TABLE `dname`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `register`

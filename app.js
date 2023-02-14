@@ -244,7 +244,7 @@ app.post('/loginUser', (req, res) => {
       console.log(pass)
       if (comp) {
         const id = results[0].id;
-        const token = jwt.sign({ id }, 'Thisismysecretkey', { expiresIn: 90 })
+        const token = jwt.sign({ id }, 'Thisismysecretkey', { expiresIn: '90d' })
         res.json({ 'message': true, 'token': token })
       } else {
         res.json({ 'message': 'fkr vua' })

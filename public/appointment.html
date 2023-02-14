@@ -200,12 +200,13 @@
               }
 
             }).map(item => (
+
               box2.innerHTML += `
               <div class="card shadow download-pdf mb-2">
                 <div class="card-body p-2">
                   <p class="p-1 m-0"><b>name:</b> ${item.uname} </p>
                   <p class="p-1 m-0"><b>phone:</b> ${item.uphone}</p>
-                  <p class="p-1 m-0"><b>date:</b> ${item.date}</p>
+                  <p class="p-1 m-0"><b>date:</b> ${new Date().toDateString(item.date)}</p>
                 </div>
               </div>
              `
