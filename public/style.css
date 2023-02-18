@@ -57,11 +57,14 @@ a:hover {
 #box {
   background-image: url('doctor.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 70% 70%;
+  background-position: bottom;
   height: 650px;
   width: 100%;
 
 }
+
+
 
 .c-f {
   border: none;
