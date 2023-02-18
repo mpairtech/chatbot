@@ -2,359 +2,498 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Chat-bot</title>
 
-
-  <link rel="stylesheet" href="style.css" />
-  <title>Chat-bot</title>
-
-
+    <link rel="stylesheet" href="style.css" />
+    <title>Hello, world!</title>
 </head>
 
-<body>
+<body class="bg-color bg-img">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/brain.js"></script>
+    <script>
+        var d = "Heart Attack";
+        fetch('http://localhost:5000/fdlist', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 'dname': d })
+        })
+            .then(res => res.json())
+            .then(res => {
+                res.message.map((item, index) => {
+                    box2.innerHTML += `
+                     
+                   <div> <b>${index + 1}. </b> ${item.input}</div> 
+                
+                `;
+                })
+            })
+            .catch(err => console.log(err))
+
+        var d = "Asthma";
+        fetch('http://localhost:5000/fdlist', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 'dname': d })
+        })
+            .then(res => res.json())
+            .then(res => {
+                res.message.map((item, index) => {
+                    box3.innerHTML += `
+                 
+               <div> <b>${index + 1}. </b> ${item.input}</div> 
+            
+            `;
+                })
+            })
+            .catch(err => console.log(err))
 
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        var d = "Diabetes";
+        fetch('http://localhost:5000/fdlist', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 'dname': d })
+        })
+            .then(res => res.json())
+            .then(res => {
+                res.message.map((item, index) => {
+                    box4.innerHTML += `
+                 
+               <div> <b>${index + 1}. </b> ${item.input}</div> 
+            
+            `;
+                })
+            })
+            .catch(err => console.log(err))
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/brain.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        var d = "IBS";
+        fetch('http://localhost:5000/fdlist', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 'dname': d })
+        })
+            .then(res => res.json())
+            .then(res => {
+                res.message.map((item, index) => {
+                    box5.innerHTML += `
+                 
+               <div> <b>${index + 1}. </b> ${item.input}</div> 
+            
+            `;
+                })
+            })
+            .catch(err => console.log(err))
+
+        var d = "Diarrhea";
+        fetch('http://localhost:5000/fdlist', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 'dname': d })
+        })
+            .then(res => res.json())
+            .then(res => {
+                res.message.map((item, index) => {
+                    box6.innerHTML += `
+                 
+               <div> <b>${index + 1}. </b> ${item.input}</div> 
+            
+            `;
+                })
+            })
+            .catch(err => console.log(err))
+    </script>
+    <script>
+
+        const tokens = localStorage.getItem("token")
+        if (tokens != null) {
+            document.getElementById("login").style.display = "block"
+
+        } else {
+            document.getElementById("login").style.display = "none"
+        }
+
+        const config = {
+            binaryThresh: 0.5,
+            hiddenLayers: [3],
+            activation: 'sigmoid',
+            leakyReluAlpha: 0.01,
+        };
+        const net = new brain.recurrent.LSTM();
+
+
+        console.log(net)
+
+        // fetch('http://localhost:5000/train',{
+        //     method: 'POST',
+        //     headers: {
+        //       'Accept': 'application/json',
+        //       'Content-Type': 'application/json'
+        //     }
+        //   })
+        //   .then(res=> res.json())
+        //   .then(res=> {
+        //     net.train(res.message,{
+        //       iterations : 200
+        //     });
+        //   })
+        //   .catch(err=> console.log(err))
 
 
 
+        getLocation();
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+
+            }
+        }
+
+        function showPosition(position) {
+
+            localStorage.setItem("latitude", position.coords.latitude);
+            localStorage.setItem("logitude", position.coords.longitude);
+
+        }
 
 
 
+        function main() {
+
+            box.innerHTML = 'LOADING';
+            header.innerHTML = '';
+
+            // var output = net.run(msg.value);
+            var input = msg.value
 
 
+            fetch('http://localhost:5000/reply', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ msg: input, input: input })
+            })
+                .then(res => res.json())
+                .then(res => {
+                    box.innerHTML = '';
+                    var textnode;
+                    var node = document.createElement("div");
+
+                    console.log(res)
+                    if (res.message) {
+                        res.dlist.sort((a, b) => {
+                            var x = distance(localStorage.getItem("latitude"), localStorage.getItem("logitude"), a.lati, a.longi).toFixed(1);
+                            var y = distance(localStorage.getItem("latitude"), localStorage.getItem("logitude"), b.lati, b.longi).toFixed(1);
+
+                            return x - y;
 
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label>Doctor's name</label>
-            <input type="text" id="dname" class="form-control" placeholder="Enter email" readonly>
-          </div>
-          <div class="form-group">
-            <label>Your name</label>
-            <input type="text" id="uname" class="form-control">
-          </div>
+                        }).map((item) => {
+                            if (item != "") {
+                                header.innerHTML += `Your are Suffering ${item.disease}`
+                                box.innerHTML += `
+                                    <div class="card mt-2 ml-1 mr-1">
+                                    <div class="card-body">
+                                    <h5 class="card-title m-0 ">${item.dname}</h5>
+                                    <small class="text-dark"><b>Specialist on ${item.disease}</b></small><br>
+                                    <b><i class="fa fa-calendar"></i></b>  ${item.dtime}<br/>
+                      <b><i class="fa fa-address-card"></i> </b> ${item.address}<br/>
+                      <b><i class="fa fa-map-marker"></i> </b> ${distance(localStorage.getItem("latitude"), localStorage.getItem("logitude"), item.lati, item.longi).toFixed(1)} km away
+                                    </div>
+                                    <div class="card-footer bg-info text-center btn-footer" onclick="main3('${item.dname}')" data-toggle="modal" data-target="#exampleModal">
+                                    <small class="text-light" ><i class="fa fa-calendar"></i>Get apointment</small>
+                                    </div>
+                                </div>
+                       `;
+                            }
+                        })
 
-          <div class="form-group">
-            <label>Your phone number</label>
-            <input type="text" id="uphone" class="form-control">
-          </div>
+                    } if (!res.message) {
+                        textnode = document.createTextNode('No doctor found');
+                        node.appendChild(textnode);
+                        document.getElementById("box").appendChild(node);
+                    }
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button onclick="main4()" type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+                })
+                .catch(err => console.log(err));
+        }
+
+        function main2(x) {
+
+            document.getElementById('doc').disabled = true;
+            fetch('http://localhost:5000/dlist', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ dname: x })
+            })
+                .then(res => res.json())
+                .then(res => {
+                    res.message.map((item) => {
+                        if (item != "") {
+
+                            box.innerHTML += `<div>
+                  <div><b>Doctor name</b> ${item.dname}</div>
+                  <div><b>Schedule</b>  ${item.dtime}</div>
+                  <div><b>Address</b> ${item.address}</div>
+                  <div><b>Distance</b> ${distance(localStorage.getItem("latitude"), localStorage.getItem("logitude"), item.lati, item.longi).toFixed(1)} km away</div>
+                  <p type="button" onclick="main3('${item.dname}')" data-toggle="modal" data-target="#exampleModal" class="btn btn-warning">Get apointment<p>
+                  </div>`;
+                        }
+                    })
+                })
+                .catch(err => console.log(err))
+        }
+
+        function main3(x) {
+            dname.value = x;
+        }
+        function main3(x) {
+            if (tokens == null) {
+                window.location = "/login"
+            } else {
+                dname.value = x;
+                document.getElementById("appBtn").click()
+            }
+
+        }
+        function main4() {
+
+            if (dname.value == "") {
+                alert("type name");
+                return false
+            }
+            if (uphone.value == "") {
+                alert("type phone");
+                return false
+            }
+
+            fetch('http://localhost:5000/postapoint', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ uname: uname.value, dname: dname.value, uphone: uphone.value })
+            })
+                .then(res => res.json())
+                .then(res => {
+                    alert(res.message)
+                    location.reload();
+                })
+                .catch(err => console.log(err));
 
 
-  <div>
-    <div class="row">
-      <div class="col-sm-3">
-        <div class="sidebar sidenav">
-          <div class="w-100">
-            <p class="active"><a href="/">
-                <i class="fa fa-search"></i>Disease Search
-              </a></p>
-            <p><i class="fa fa-angle-right"></i><a href="/hd.html">Myocardial infarction (Heart Attack)</a></p>
-            <p><i class="fa fa-angle-right"></i><a href="/asthma.html">Asthma</a></p>
-            <p><i class="fa fa-angle-right"></i><a href="#">Diabetes</a></p>
-            <p><i class="fa fa-angle-right"></i><a href="#">IBS-Irritable Bowel Movement</a></p>
-            <p><i class="fa fa-angle-right"></i><a href="/covid.html">Covid</a></p>
-            <div id="login">
-              <p><i class="fa fa-angle-right"></i><a href="/login.html">Login</a></p>
-              <p><i class="fa fa-angle-right"></i><a href="/register.html">Sign Up</a></p>
+        }
+
+
+        function distance(lat1, lon1, lat2, lon2, unit) {
+            var radlat1 = Math.PI * lat1 / 180
+            var radlat2 = Math.PI * lat2 / 180
+            var theta = lon1 - lon2
+            var radtheta = Math.PI * theta / 180
+            var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+            dist = Math.acos(dist)
+            dist = dist * 180 / Math.PI
+            dist = dist * 60 * 1.1515
+            if (unit == "K") { dist = dist * 1.609344 }
+            if (unit == "N") { dist = dist * 0.8684 }
+            return dist
+        }
+    </script>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Doctor's name</label>
+                        <input type="text" id="dname" class="form-control" placeholder="Enter email" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Your name</label>
+                        <input type="text" id="uname" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your phone number</label>
+                        <input type="text" id="uphone" class="form-control">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button onclick="main4()" type="button" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+    <div class="container homeelememnt bg-white my-5 p-3 rounded">
 
-      <div class="col-sm-9 sidebar">
-
-        <div class="container-fluid">
-
-
-          <br />
-          <br />
-          <div class="d-flex form-control">
+        <h4>Search Symptoms</h4>
+        <div class="d-flex form-control">
             <input type="search" id="msg" placeholder="Search Disease" class="c-f w-100" />
             <i onclick="main()" class="fa fa-search m-2" style="font-size:20px;cursor:pointer;"></i>
-          </div>
-
-          <br />
-
-          <hr />
-
-
-
-          <div id="box">
-            <center>
-              <img src="noresult.gif" width="250" />
-              <h5>Search result will appear here</h5>
-            </center>
-          </div>
-
-          <div>
-
-
-
-
-            <!-- <div id="box">
-                    </div>
-                    <input type="text" id="msg" class="form-control" placeholder="Type your Symptomps" />
-                    <button onclick="main()" class="btn btn-info">
-                      <i class="fa fa-paper-plane"></i>
-                      Send</button> -->
-          </div>
-
-
-          <button id="appBtn" style="display:none" data-toggle="modal" data-target="#exampleModal"
-            class="btn btn-warning">Get apointment</button>
         </div>
+        <div class="search-doctor-panel">
+            <p id="header" class="text-center m-0"></p>
 
-      </div>
+            <div id="box" class="card-deck m-0 justify-content-center">
 
+                <center>
+                    <img src="noresult.gif" width="200" />
+                    <h5>Search result will appear here</h5>
+                </center>
 
+            </div>
+        </div>
+        <button id="appBtn" style="display:none" data-toggle="modal" data-target="#exampleModal"
+            class="btn btn-warning">Get apointment</button>
+        <div class="info">
+            <h5 class="border-bottom p-2">Popular Disease Symptoms</h5>
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button
+                                class="btn btn-link bg-light border-0 w-100 text-left text-dark text-decoration-none d-flex justify-content-between align-items-center"
+                                data-toggle="collapse" data-target="#1" aria-expanded="true"
+                                aria-controls="collapseOne">
+                                Myocardial infarction (Heart Attack)
+                                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <div id="box2">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button
+                                class="btn btn-link bg-light border-0 w-100 text-left text-dark text-decoration-none d-flex justify-content-between align-items-center"
+                                data-toggle="collapse" data-target="#2" aria-expanded="true"
+                                aria-controls="collapseOne">
+                                Asthma
+                                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="2" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <div id="box3">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button
+                                class="btn btn-link bg-light border-0 w-100 text-left text-dark text-decoration-none d-flex justify-content-between align-items-center"
+                                data-toggle="collapse" data-target="#3" aria-expanded="true"
+                                aria-controls="collapseOne">
+                                Diabetes
+                                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="3" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <div id="box4">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button
+                                class="btn btn-link bg-light border-0 w-100 text-left text-dark text-decoration-none d-flex justify-content-between align-items-center"
+                                data-toggle="collapse" data-target="#4" aria-expanded="true"
+                                aria-controls="collapseOne">
+                                IBS-Irritable Bowel Movement
+                                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="4" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <div id="box5">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button
+                                class="btn btn-link bg-light border-0 w-100 text-left text-dark text-decoration-none d-flex justify-content-between align-items-center"
+                                data-toggle="collapse" data-target="#5" aria-expanded="true"
+                                aria-controls="collapseOne">
+                                Diarrhea
+                                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="5" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <div id="box6">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-
-
-
-
-
-
-  <script>
-    const tokens = localStorage.getItem("token")
-    if (tokens != null) {
-      document.getElementById("login").style.display = "block"
-
-    } else {
-      document.getElementById("login").style.display = "none"
-    }
-
-    const config = {
-      binaryThresh: 0.5,
-      hiddenLayers: [3],
-      activation: 'sigmoid',
-      leakyReluAlpha: 0.01,
-    };
-    const net = new brain.recurrent.LSTM();
-
-
-    console.log(net)
-
-    // fetch('http://localhost:5000/train', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json'
-    //   }
-    // })
-    //   .then(res => res.json())
-    //   .then(res => {
-    //     net.train(res.message, {
-    //       iterations: 200
-    //     });
-    //   })
-    //   .catch(err => console.log(err))
-
-
-
-    getLocation();
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else {
-
-      }
-    }
-
-    function showPosition(position) {
-
-      localStorage.setItem("latitude", position.coords.latitude);
-      localStorage.setItem("logitude", position.coords.longitude);
-
-    }
-
-
-
-    function main() {
-
-      box.innerHTML = 'LOADING';
-
-      // var output = net.run(msg.value);
-      var input = msg.value
-
-
-      fetch('http://localhost:5000/reply', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ msg: input, input: input })
-      })
-        .then(res => res.json())
-        .then(res => {
-          box.innerHTML = '';
-          var textnode;
-          var node = document.createElement("div");
-
-          console.log(res)
-          if (res.message) {
-            res.dlist.sort((a, b) => {
-              var x = distance(localStorage.getItem("latitude"), localStorage.getItem("logitude"), a.lati, a.longi).toFixed(1);
-              var y = distance(localStorage.getItem("latitude"), localStorage.getItem("logitude"), b.lati, b.longi).toFixed(1);
-
-              return x - y;
-
-
-            }).map((item) => {
-              if (item != "") {
-                box.innerHTML += `<div class="card m-1 p-3">
-                  <div class="d-flex">
-                  <img width="200" src="https://concorde.flydocx.com/static/media/placeholder.dd9d75f7a3a26d78455c9b8aa496de5b.svg"/>
-                  
-                  <div style="width:80px"></div>
-                  <div>
-                  <div><b><i class="fa fa-user"></i>Doctor name : </b> ${item.dname}</div>
-                  <div><b><i class="fa fa-calendar"></i>Schedule : </b>  ${item.dtime}</div>
-                  <div><b><i class="fa fa-address-card"></i>Address : </b> ${item.address}</div>
-                  <div><b><i class="fa fa-map-marker"></i>Distance : </b> ${distance(localStorage.getItem("latitude"), localStorage.getItem("logitude"), item.lati, item.longi).toFixed(1)} km away</div>
-                  
-                  
-                  <br/>
-                  
-                  
-                  
-                  <p type="button" onclick="main3('${item.dname}')" data-toggle="modal" data-target="#exampleModal" class="btn btn-warning"><i class="fa fa-calendar"></i>Get apointment<p>
-                  </div>
-                  
-                  </div>
-                  </div>`;
-              }
-            })
-
-          } if (!res.message) {
-            textnode = document.createTextNode('No doctor found');
-            node.appendChild(textnode);
-            document.getElementById("box").appendChild(node);
-          }
-
-        })
-        .catch(err => console.log(err));
-    }
-
-    function main2(x) {
-
-      document.getElementById('doc').disabled = true;
-      fetch('http://localhost:5000/dlist', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ dname: x })
-      })
-        .then(res => res.json())
-        .then(res => {
-          res.message.map((item) => {
-            if (item != "") {
-              box.innerHTML += `<div>
-              <div><b>Doctor name</b> ${item.dname}</div>
-              <div><b>Schedule</b>  ${item.dtime}</div>
-              <div><b>Address</b> ${item.address}</div>
-              <div><b>Distance</b> ${distance(localStorage.getItem("latitude"), localStorage.getItem("logitude"), item.lati, item.longi).toFixed(1)} km away</div>
-              <p type="button" onclick="main3('${item.dname}')" data-toggle="modal" data-target="#exampleModal" class="btn btn-warning">Get apointment<p>
-              </div>`;
-            }
-          })
-        })
-        .catch(err => console.log(err))
-    }
-
-    function main3(x) {
-      if (tokens == null) {
-        window.location = "/login"
-      } else {
-        dname.value = x;
-        document.getElementById("appBtn").click()
-      }
-
-    }
-
-    function main4() {
-      fetch('http://localhost:5000/postapoint', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ uname: uname.value, dname: dname.value, uphone: uphone.value })
-      })
-        .then(res => res.json())
-        .then(res => {
-          alert(res.message)
-          location.reload();
-        })
-        .catch(err => console.log(err));
-
-
-    }
-
-
-    function distance(lat1, lon1, lat2, lon2, unit) {
-      var radlat1 = Math.PI * lat1 / 180
-      var radlat2 = Math.PI * lat2 / 180
-      var theta = lon1 - lon2
-      var radtheta = Math.PI * theta / 180
-      var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-      dist = Math.acos(dist)
-      dist = dist * 180 / Math.PI
-      dist = dist * 60 * 1.1515
-      if (unit == "K") { dist = dist * 1.609344 }
-      if (unit == "N") { dist = dist * 0.8684 }
-      return dist
-    }
-  </script>
-
-
-
-
-
-
-
 
 </body>
 
