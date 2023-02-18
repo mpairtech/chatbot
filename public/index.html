@@ -182,6 +182,25 @@
                     </div>
                   </div>
                 </div>
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button
+                      class="btn btn-link bg-light border-0 w-100 text-left text-dark text-decoration-none d-flex justify-content-between align-items-center"
+                      data-toggle="collapse" data-target="#6" aria-expanded="true" aria-controls="collapseOne">
+                      Covid
+
+                      <i class="fa fa-angle-right"></i>
+                    </button>
+                  </h5>
+                </div>
+
+                <div id="6" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                    <div id="box7">
+
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -253,7 +272,7 @@
 
 
   <script>
-    var d = "Heart Attack";
+    var d = "Myocardial infarction (Heart Attack)";
     fetch('http://localhost:5000/fdlist', {
       method: 'POST',
       headers: {
@@ -317,7 +336,7 @@
       })
       .catch(err => console.log(err))
 
-    var d = "IBS";
+    var d = "IBS-Irritable Bowel Movement";
     fetch('http://localhost:5000/fdlist', {
       method: 'POST',
       headers: {
@@ -351,6 +370,27 @@
       .then(res => {
         res.message.map((item, index) => {
           box6.innerHTML += `
+                 
+               <div> <b>${index + 1}. </b> ${item.input}</div> 
+            
+            `;
+        })
+      })
+      .catch(err => console.log(err))
+
+    var d = "Covid";
+    fetch('http://localhost:5000/fdlist', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ 'dname': d })
+    })
+      .then(res => res.json())
+      .then(res => {
+        res.message.map((item, index) => {
+          box7.innerHTML += `
                  
                <div> <b>${index + 1}. </b> ${item.input}</div> 
             
@@ -450,7 +490,7 @@
 
             }).map((item) => {
               if (item != "") {
-                header.innerHTML += `Your might be Suffering ${item.disease}`
+                header.innerHTML = `Your might be Suffering ${item.disease}`
                 box.innerHTML += `
                                     <div class="card mt-2 ml-1 mr-1">
                                     <div class="card-body">
