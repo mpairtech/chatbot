@@ -98,7 +98,7 @@ app.post('/postdis', (req, res) => {
 app.post('/fdlist', (req, res) => {
   const { dname } = req.body;
 
-  db.query('SELECT *FROM disease WHERE output = ? ', dname, (err, result) => {
+  db.query('SELECT *FROM disease WHERE output = ? LIMIT 5', dname, (err, result) => {
     res.json({ 'message': result });
     console.log(err)
   });

@@ -54,6 +54,14 @@ a:hover {
     overflow:auto;
     white-space: nowrap;
   } */
+#box {
+  background-image: url('doctor.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 650px;
+  width: 100%;
+
+}
 
 .c-f {
   border: none;
