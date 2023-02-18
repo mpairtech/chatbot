@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2023 at 07:35 AM
+-- Generation Time: Feb 18, 2023 at 05:43 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -173,15 +173,7 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`id`, `email`, `mobile`, `pass`) VALUES
-(12, 'info@parkviewappointment.com', 2147483647, '[object Promise]'),
-(13, 'info@parkviewappointment.com', 2147483647, '$2a$10$CUsaHfpC8UFS5RDlv2E0TOHJbq0QD2zV7wMpRQ/sLf.MDZ0IjDkHK'),
-(14, 'info@parkviewappointment.com', 34345345, '$2a$10$XYWvJN7ahYC7uRpGccQ42e/BhURxCa93coRsZdlhKypc/mjqzKWai'),
-(15, 'info@parkviewappointment.com', 45353456, '$2a$10$DsJXDzBlY31gn4w0Bn9S5O9EqHFhCjhIZoafN2/nBlOefeIT8zaJW'),
-(16, 'info@parkviewappointment.com', 2147483647, '$2a$10$HYXfYAJIDfbzDS9Et3b2aeMdrMqHn7qifeEiZaCtlpcjkdoi4koOG'),
-(17, 'info@parkviewappointment.com', 45345345, '$2a$10$KN04gACI/KZ5Bi360DS4Mus/Mw.bzn006LKJ.jD7EDGXJP5aIEp/a'),
-(18, 'info@parkviewappointment.com', 45345345, '$2a$10$IgWW9dhAJRiBH3T2drS20OqRlCIsZNqQLzSBptTY0xxn97qEC1WVu'),
-(19, 'fkr@gmail.com', 1234, '$2a$10$ykhxlDLK1vRcGp7jXph.Euv/TjGAbjTu/wDnUSOaRckcV6rdd6uzy'),
-(20, 'fkr2@gmail.com', 12345, '$2a$10$vakRrbs.pGpJaOp8yoZ5T.M3cbrM8jzBuLvnhUarC6V0z0QoBVOeu');
+(21, 'fkr@gmail.com', 1234, '$2a$10$vgI1mY52/YIK0Y4uZJfTDufjiNNBDrKeUEB4CHTRC6iAfnbbeZGEq');
 
 --
 -- Indexes for dumped tables
@@ -249,7 +241,7 @@ ALTER TABLE `doctor`
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
