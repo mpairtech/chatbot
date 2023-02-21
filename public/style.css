@@ -55,10 +55,10 @@ a:hover {
     white-space: nowrap;
   } */
 #box {
-  background-image: url('doctor.jpg');
+  /* background-image: url('doctor.jpg');
   background-repeat: no-repeat;
   background-size: 70% 70%;
-  background-position: bottom;
+  background-position: bottom; */
   height: 650px;
   width: 100%;
 
@@ -82,6 +82,11 @@ i {
 
 .bg-color {
   background-color: #ddd;
+}
+
+.bgimg {
+  background-image: url('medical-banner.jpg');
+  background-size: cover;
 }
 
 .bg-img {
