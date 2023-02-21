@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
 })
 
 
-db.query("SELECT input, output FROM disease ORDER BY id DESC", (err, result) => {
+db.query("SELECT input, output FROM disease ORDER BY input DESC", (err, result) => {
   net.train(result, {
     iterations: 10
   });
@@ -51,7 +51,7 @@ db.query("SELECT input, output FROM disease ORDER BY id DESC", (err, result) => 
 
 
 app.post('/train', (req, res) => {
-  db.query("SELECT input, output FROM disease ORDER BY output ASC", (err, result) => {
+  db.query("SELECT input, output FROM disease ORDER BY input ASC", (err, result) => {
     res.json({ 'message': result })
   })
 })
@@ -123,17 +123,8 @@ app.post('/postapoint', (req, res) => {
 app.post('/reply', (req, res) => {
   const { msg, input } = req.body;
   const output = net.run(msg);
-
-  db.query("SELECT output FROM disease WHERE output = ?", output, (err, result) => {
-    if (result.length > 0) {
-
-      db.query("SELECT *FROM doctor WHERE disease = ?", output, (err, result2) => {
-        res.json({ 'message': true, 'dlist': result2 })
-      })
-
-    } else {
-
-      db.query("SELECT output FROM disease WHERE input = ?", input, (err, result3) => {
+  
+      db.query("SELECT output FROM disease WHERE input LIKE ?", ['%'+input+'%'], (err, result3) => {
         if (result3.length > 0) {
 
           var x = result3[0].output;
@@ -141,13 +132,26 @@ app.post('/reply', (req, res) => {
             res.json({ 'message': true, 'dlist': result4 })
           })
         } else {
-          res.json({ 'message': false });
+           prediction()
         }
       })
 
 
-    }
-  })
+
+
+   function prediction(){
+      db.query("SELECT output FROM disease WHERE output LIKE ?", ['%'+output+'%'], (err, result) => {
+        if (result.length > 0) {
+
+          db.query("SELECT *FROM doctor WHERE disease = ?", result[0].output, (err, result2) => {
+            res.json({ 'message': true, 'dlist': result2 })
+          })
+
+        } else {
+            res.json({ 'message': false });
+        }
+      })
+   }
 
 })
 
