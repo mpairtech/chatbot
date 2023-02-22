@@ -44,9 +44,11 @@ app.get('/', (req, res) => {
 
 
 db.query("SELECT input, output FROM disease ORDER BY input DESC", (err, result) => {
-  net.train(result, {
-    iterations: 10
-  });
+  if(result.length>0){
+    net.train(result, {
+      iterations: 10
+    });
+  }
 })
 
 
