@@ -232,6 +232,7 @@
             <input type="search" id="msg" placeholder="Search Disease" class="c-f w-100" />
             <i onclick="main()" class="fa fa-search m-2" style="font-size:20px;cursor:pointer;"></i>
           </div>
+          <p id="validation"></p>
           <p id="header" class="text-center m-0"></p>
           <div id="box">
             <div class="card-deck m-0 justify-content-center">
@@ -507,9 +508,13 @@
             })
 
           } if (!res.message) {
-            textnode = document.createTextNode('No doctor found');
-            node.appendChild(textnode);
-            document.getElementById("box").appendChild(node);
+            validation.innerHTML = res.alert;
+
+            if(res.alert == ''){
+              textnode = document.createTextNode('No doctor found');
+              node.appendChild(textnode);
+              document.getElementById("box").appendChild(node);
+            }
           }
 
         })

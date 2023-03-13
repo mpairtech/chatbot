@@ -18,6 +18,12 @@ const config = {
 const net = new brain.recurrent.LSTM();
 
 
+function getCount(str) {
+  return str.split(' ').filter(function(num) {
+   return num != ''
+  }).length;
+ }
+
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -126,34 +132,43 @@ app.post('/reply', (req, res) => {
   const { msg, input } = req.body;
   const output = net.run(msg);
   
-      db.query("SELECT output FROM disease WHERE input LIKE ?", ['%'+input+'%'], (err, result3) => {
-        if (result3.length > 0) {
+  console.log(getCount(input))
 
-          var x = result3[0].output;
-          db.query("SELECT *FROM doctor WHERE disease = ?", x, (err, result4) => {
-            res.json({ 'message': true, 'dlist': result4 })
+      if(Number(getCount(input)) < 5){
+        res.json({ 'message': false, 'alert': 'Symptomps should be 5 word minimum' })
+      } else {
+        db.query("SELECT output FROM disease WHERE input LIKE ?", ['%'+input+'%'], (err, result3) => {
+          if (result3.length > 0) {
+  
+            var x = result3[0].output;
+            db.query("SELECT *FROM doctor WHERE disease = ?", x, (err, result4) => {
+              res.json({ 'message': true, 'dlist': result4,'alert':'' })
+            })
+          } else {
+             prediction()
+          }
+        })
+      }
+  
+  
+      
+
+
+
+
+      function prediction(){
+          db.query("SELECT output FROM disease WHERE output LIKE ?", ['%'+output+'%'], (err, result) => {
+            if (result.length > 0) {
+
+              db.query("SELECT *FROM doctor WHERE disease = ?", result[0].output, (err, result2) => {
+                res.json({ 'message': true, 'dlist': result2,'alert':'' })
+              })
+
+            } else {
+                res.json({ 'message': false ,'alert':''});
+            }
           })
-        } else {
-           prediction()
-        }
-      })
-
-
-
-
-   function prediction(){
-      db.query("SELECT output FROM disease WHERE output LIKE ?", ['%'+output+'%'], (err, result) => {
-        if (result.length > 0) {
-
-          db.query("SELECT *FROM doctor WHERE disease = ?", result[0].output, (err, result2) => {
-            res.json({ 'message': true, 'dlist': result2 })
-          })
-
-        } else {
-            res.json({ 'message': false });
-        }
-      })
-   }
+      }
 
 })
 
